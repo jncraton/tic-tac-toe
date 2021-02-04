@@ -1,7 +1,28 @@
 import random
 from collections import Counter
 
-def agent1(board):
+def my_agent(board):
+    """ 
+    Implement your agent here. It is expected that you will perform a search over a game tree.
+
+    It has access to the board as a 3x3 array. Players are denoted as
+
+    - X - You have played here
+    - O - Your opponent has played here
+    - ' ' (Space) - No one has played here
+
+    You must return a valid space to play as a 2d tuple. Examples:
+
+    - (1,1) - Center of the board
+    - (0,2) - Bottom left of the board
+    - (2,0) - Top right of the board
+
+    The random_agent and ordered_agent may also show helpful examples.
+    """
+    
+    pass
+    
+def random_agent(board):
     while True:
         x = random.randint(0,2)
         y = random.randint(0,2)
@@ -9,7 +30,7 @@ def agent1(board):
         if board[y][x] == ' ':
             return (x,y)
 
-def agent2(board):
+def ordered_agent(board):
     if board[1][1] == ' ':
         return (1,1)
 
@@ -48,7 +69,7 @@ def play(agents,quiet=True):
     ]
 
     for i in range(9):
-        move = agents[i%2](board)
+        move = agents[i%2](board.copy())
 
         if board[move[1]][move[0]] == ' ':                        
             board[move[1]][move[0]] = 'XO'[i%2]
@@ -78,5 +99,8 @@ def get_win_rate(agents, runs=10000):
     return counter['X'] / (counter['X'] + counter['O'])
 
 if __name__ == '__main__':
-    play([agent1, agent2], quiet=False)
-    print(f"Win rate for agent1: {get_win_rate([agent1, agent2])}")
+    player = ordered_agent
+    opponent = random_agent
+
+    #play([player, opponent], quiet=False)
+    print(f"Win rate for agent1: {get_win_rate([player, opponent])}")
