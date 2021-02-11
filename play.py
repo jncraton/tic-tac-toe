@@ -1,5 +1,22 @@
 import random
+from itertools import product
+from copy import deepcopy
 from collections import Counter
+from random import choice
+
+def get_legal_moves(board):
+    """
+    >>> get_legal_moves([['X','X','X'],['X',' ','X'],['X','X','X']])
+    [(1, 1)]
+
+    >>> len(get_legal_moves([[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]))
+    9
+    
+    >>> get_legal_moves([['X','X','X'],['X','X','X'],['X','X','X']])
+    []
+    """
+    
+    return [(x, y) for x,y in product(range(3), range(3)) if board[y][x] == ' ']
 
 def my_agent(board):
     """ 
@@ -19,7 +36,7 @@ def my_agent(board):
 
     The random_agent and ordered_agent may also show helpful examples.
     """
-    
+
     pass
     
 def random_agent(board):
@@ -61,6 +78,9 @@ def get_winner(board):
         if len(row) == 1 and row != {' '}:
             return row.pop()
 
+    if not "' '" in str(board):
+        return "No one"
+
 def play(agents,quiet=True):
     board = [
         [' ',' ',' '],
@@ -79,18 +99,13 @@ def play(agents,quiet=True):
         else:
             raise ValueError("Illegal move")
         
-
         if get_winner(board):
             if not quiet:
                 print(f"{get_winner(board)} wins!")
             return get_winner(board)
             break
-    else:
-        if not quiet:
-            print("Tie!")
-        return 'T'
 
-def get_win_rate(agents, runs=10000):
+def get_win_rate(agents, runs=1000):
     counter = Counter()
 
     for i in range(runs):
@@ -99,8 +114,8 @@ def get_win_rate(agents, runs=10000):
     return counter['X'] / (counter['X'] + counter['O'])
 
 if __name__ == '__main__':
-    player = ordered_agent
+    player = my_agent
     opponent = random_agent
 
-    #play([player, opponent], quiet=False)
-    print(f"Win rate for agent1: {get_win_rate([player, opponent])}")
+    play([player, opponent], quiet=False)
+    print(f"Win rate: {get_win_rate([player, opponent])}")
