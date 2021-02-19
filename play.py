@@ -63,6 +63,19 @@ def show(board):
     print("+---+")
 
 def get_winner(board):
+    """
+    Returns the winner for a board state
+
+    >>> get_winner([['X','X','X'],['O','O','X'],['X','O','O']])
+    'X'
+
+    >>> get_winner([['O','X','X'],['X','O','X'],['X','O','O']])
+    'O'
+
+    >>> get_winner([['X','O','X'],['X','O','X'],['O','X','O']])
+    'No one'
+    """
+
     rows = []
 
     for x in range(3):
