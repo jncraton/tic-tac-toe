@@ -106,6 +106,9 @@ def get_winner(board):
 
     >>> get_winner([['O','O','X'],['X','X','O'],['O','X','X']])
     'No one'
+
+    >>> get_winner([[' ','O','X'],['X','X','O'],['O',' ','X']])
+    None
     """
 
     lines = [
