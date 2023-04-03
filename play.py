@@ -39,7 +39,7 @@ def my_agent(board):
     The random_agent and ordered_agent may also show helpful examples.
     """
 
-    pass
+    return random_agent(board)
 
 
 def random_agent(board):
