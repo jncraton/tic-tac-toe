@@ -75,6 +75,10 @@ def ordered_agent(board):
 
 
 def show(board):
+    """
+    Displays the board
+    """
+
     print("+---+")
     for y in range(0, 3):
         print(f"|{''.join(board[y])}|")
