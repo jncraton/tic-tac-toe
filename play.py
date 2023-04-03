@@ -108,20 +108,18 @@ def get_winner(board):
     'No one'
     """
 
-    rows = []
+    lines = []
 
-    for x in range(3):
-        rows.append({board[0][x], board[1][x], board[2][x]})
+    for i in range(3):
+        lines.append({board[0][i], board[1][i], board[2][i]})
+        lines.append({board[i][0], board[i][1], board[i][2]})
 
-    for y in range(3):
-        rows.append({board[y][0], board[y][1], board[y][2]})
+    lines.append({board[0][0], board[1][1], board[2][2]})
+    lines.append({board[2][0], board[1][1], board[0][2]})
 
-    rows.append({board[0][0], board[1][1], board[2][2]})
-    rows.append({board[2][0], board[1][1], board[0][2]})
-
-    for row in rows:
-        if len(row) == 1 and row != {" "}:
-            return row.pop()
+    for line in lines:
+        if len(line) == 1 and line != {" "}:
+            return line.pop()
 
     if not "' '" in str(board):
         return "No one"
