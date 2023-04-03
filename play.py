@@ -108,14 +108,13 @@ def get_winner(board):
     'No one'
     """
 
-    lines = []
+    lines = [
+        {board[0][0], board[1][1], board[2][2]},
+        {board[2][0], board[1][1], board[0][2]},
+    ]
 
-    for i in range(3):
-        lines.append({board[0][i], board[1][i], board[2][i]})
-        lines.append({board[i][0], board[i][1], board[i][2]})
-
-    lines.append({board[0][0], board[1][1], board[2][2]})
-    lines.append({board[2][0], board[1][1], board[0][2]})
+    lines += [{board[0][i], board[1][i], board[2][i]} for i in range(3)]
+    lines += [{board[i][0], board[i][1], board[i][2]} for i in range(3)]
 
     for line in lines:
         if len(line) == 1 and line != {" "}:
