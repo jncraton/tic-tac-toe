@@ -102,13 +102,13 @@ def get_winner(board):
     'X'
 
     >>> get_winner([['X','O','X'],['X','O','X'],['O','X','O']])
-    'No one'
+    'T'
 
     >>> get_winner([['O','O','X'],['X','X','O'],['O','X','X']])
-    'No one'
+    'T'
 
     >>> get_winner([[' ','O','X'],['X','X','O'],['O',' ','X']])
-    None
+
     """
 
     lines = [
@@ -124,7 +124,7 @@ def get_winner(board):
             return line.pop()
 
     if not "' '" in str(board):
-        return "No one"
+        return "T"
 
 
 def play(agents, quiet=True):
