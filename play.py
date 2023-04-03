@@ -92,6 +92,9 @@ def get_winner(board):
     >>> get_winner([['X','X','X'],['O','O','X'],['X','O','O']])
     'X'
 
+    >>> get_winner([['X','O','X'],['O','O','X'],['X','O','X']])
+    'O'
+
     >>> get_winner([['O','X','X'],['X','O','X'],['X','O','O']])
     'O'
 
