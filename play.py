@@ -43,6 +43,12 @@ def my_agent(board):
 
 
 def random_agent(board):
+    """
+    Random Agent
+
+    Very basic agent that simply selects a random legal move
+    """
+
     while True:
         x = random.randint(0, 2)
         y = random.randint(0, 2)
@@ -52,6 +58,13 @@ def random_agent(board):
 
 
 def ordered_agent(board):
+    """
+    Ordered Agent
+
+    Simple agent that selects legal moves in order from left to right and top
+    to bottom after playing the center.
+    """
+
     if board[1][1] == " ":
         return (1, 1)
 
