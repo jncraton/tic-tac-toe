@@ -5,7 +5,7 @@ This project creates an AI agent to play games of [Tic-tac-toe](https://en.wikip
 
 ![Move sequence](https://upload.wikimedia.org/wikipedia/commons/1/1b/Tic-tac-toe-game-1.svg)
 
-The included `my_agent` function should be modified to return an appropriate move for a given board position. Additional implementation details are descrived in `play.py`.
+The included `my_agent` function should be modified to return an appropriate move for a given board position. Additional implementation details are described in `play.py`.
 
 Algorithms
 ----------
