@@ -149,7 +149,6 @@ def play(agents, quiet=True):
             if not quiet:
                 print(f"{get_winner(board)} wins!")
             return get_winner(board)
-            break
 
 
 def get_win_rate(agents, runs=1000):
