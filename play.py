@@ -10,6 +10,9 @@ def get_legal_moves(board):
     >>> get_legal_moves([['X','X','X'],['X',' ','X'],['X','X','X']])
     [(1, 1)]
 
+    >>> get_legal_moves([['X','X','X'],['X','X','X'],[' ','X','X']])
+    [(0, 2)]
+
     >>> len(get_legal_moves([[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]))
     9
 
